@@ -1,0 +1,23 @@
+#!/bin/bash
+
+file=$(ls files)
+lower=(a b c d e f g h i j k l m n o p q r s t u v w x y z)
+upper=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
+
+for (( i=0; i<26; i++ ))
+do
+a=$(echo "$file" | grep ^${lower[$i]})
+A=$(echo "$file" | grep ^${upper[$i]})
+
+
+for b in $a
+do
+mv "files/$b" ${lower[$i]}
+done
+
+for b in $A
+do
+mv "files/$b" ${lower[$i]}
+done
+
+done
